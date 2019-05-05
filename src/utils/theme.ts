@@ -1,2 +1,2 @@
-const darkBlue = '#0d0d25'
+const darkBlue = '#0F0F4E'
 const lightBlue = '#25d4ff'

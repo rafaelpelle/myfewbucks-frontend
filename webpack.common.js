@@ -120,8 +120,8 @@ module.exports = env = {
 			name: appName,
 			short_name: appName,
 			description: appName,
-			background_color: '#0d0d25',
-			theme_color: '#0d0d25',
+			background_color: '#0F0F4E',
+			theme_color: '#0F0F4E',
 			start_url: '/',
 			icons: [
 				{
