@@ -5,40 +5,10 @@ const HomePage: React.FC<Props> = (props) => {
 	return (
 		<div>
 			<Typography variant='h1' align='center'>
-				Test
+				Rafael
 			</Typography>
 			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Test
+				Pelle
 			</Typography>
 		</div>
 	)
