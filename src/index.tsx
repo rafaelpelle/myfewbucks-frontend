@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { applyMiddleware, createStore } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
 import * as ReactDOM from 'react-dom'
-import RegisterSW from './utils/registerSW'
-import App from './main/app'
-import reducers from './redux/reducers/reducers'
-import { composeWithDevTools } from 'redux-devtools-extension'
 import * as promise from 'redux-promise'
+import { Provider } from 'react-redux'
+import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import RegisterSW from './utils/registerSW'
+import reducers from './redux/reducers/reducers'
+import App from './main/app'
 
 const composeEnhancers = composeWithDevTools({
 	// options like actionSanitizer, stateSanitizer

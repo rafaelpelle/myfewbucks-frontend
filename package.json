@@ -59,6 +59,7 @@
     "style-loader": "^0.23.1",
     "sw-precache-webpack-plugin": "^0.11.5",
     "tslint": "^5.13.0",
+    "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^3.6.0",
     "typescript": "3.3.3333",
     "uglifyjs-webpack-plugin": "^2.1.2",
@@ -70,6 +71,8 @@
     "webpack-pwa-manifest": "^4.0.0"
   },
   "dependencies": {
-    "tslint-config-prettier": "^1.18.0"
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "@types/material-ui": "^0.21.6"
   }
 }

@@ -1,4 +1,7 @@
-export interface RootReducerInterface {
-	// ThemeReducer: ThemeInterface,
-	// ProjectReducer: ProjectInterface
+export interface IRootReducer {
+	UserReducer: IUserReducer,
+}
+
+export interface IUserReducer {
+	accessToken: string,
 }

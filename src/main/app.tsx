@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { RootReducerInterface } from '../utils/interfaces'
+import { IRootReducer } from '../utils/interfaces'
 import { Router, Switch } from 'react-router-dom'
 import { history } from '../router/history'
 import MyRoutes from '../router/myRoutes'
+import PageHeader from '../components/pageHeader/pageHeader'
 
 require('./app.css')
 
@@ -32,6 +33,7 @@ class App extends React.Component<Props, State> {
 				<div>
 					{/*<ToastContainer />*/}
 					{/*<ModalContainer />*/}
+					<PageHeader text={ 'MyFewBucks' }/>
 					<Switch>
 						<MyRoutes />
 					</Switch>
@@ -40,7 +42,7 @@ class App extends React.Component<Props, State> {
 		)
 	}
 }
-const mapStateToProps = (state: RootReducerInterface) => ({})
+const mapStateToProps = (state: IRootReducer) => ({})
 const mapDispatchToProps = (dispatch: any) => bindActionCreators({}, dispatch)
 export default connect<StateProps, DispatchProps, OwnProps>(
 	mapStateToProps,

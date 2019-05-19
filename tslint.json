@@ -9,7 +9,6 @@
     "no-unused-expression": false,
     "member-access": false,
     "no-empty-interface": false,
-    "react/jsx-max-props-per-line": [1, { "maximum": 2, "when": "always" }],
     "quotemark": [true, "single", "avoid-escape"],
     "ordered-imports": false,
     "grouped-imports": false,

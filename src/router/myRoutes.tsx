@@ -2,7 +2,7 @@ import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect, Route } from 'react-router'
-import { RootReducerInterface } from '../utils/interfaces'
+import { IRootReducer } from '../utils/interfaces'
 import HomePage from '../pages/home/home'
 
 class MyRoutes extends React.Component<Props, State> {
@@ -14,7 +14,7 @@ class MyRoutes extends React.Component<Props, State> {
 		)
 	}
 }
-const mapStateToProps = (state: RootReducerInterface) => ({})
+const mapStateToProps = (state: IRootReducer) => ({})
 const mapDispatchToProps = (dispatch: any) => bindActionCreators({}, dispatch)
 export default connect<StateProps, DispatchProps, OwnProps>(
 	mapStateToProps,
