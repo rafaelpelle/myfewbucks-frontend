@@ -13,7 +13,7 @@ const App: React.FC<Props> = (props) => {
 	React.useEffect(() => {
 		// listen to the service-worker registration.onupdatefound event on /src/Utils/registerSW.ts.
 		document.body.addEventListener('updateAvailable', () => {
-			alert('Update available')
+			// alert('Update available')
 			window.location.reload()
 		})
 	}, [])

@@ -6,9 +6,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const path = require('path')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
-
 const PUBLIC_PATH = process.env.PUBLIC_URL
+
+const iceGrey = '#f3f3f3'
 const appName = 'MyFewBucks'
+
 
 module.exports = env = {
 	entry: './src/index.tsx',
@@ -87,7 +89,7 @@ module.exports = env = {
 		}),
 		new HtmlWebpackPlugin({
 			appMountId: 'root',
-			title: 'React',
+			title: appName,
 			template: './public/index.html',
 		}),
 		new SWPrecacheWebpackPlugin({
@@ -120,8 +122,8 @@ module.exports = env = {
 			name: appName,
 			short_name: appName,
 			description: appName,
-			background_color: '#0F0F4E',
-			theme_color: '#0F0F4E',
+			background_color: iceGrey,
+			theme_color: iceGrey,
 			start_url: '/',
 			icons: [
 				{
