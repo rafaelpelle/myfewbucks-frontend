@@ -3,13 +3,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect, Route } from 'react-router'
 import { IRootReducer } from '../utils/interfaces'
-import { pageHeaderHeight } from '../utils/theme'
+import { iceGrey, pageHeaderHeight } from '../utils/theme'
 import HomePage from '../pages/home/home'
 
 class MyRoutes extends React.Component<Props, State> {
 	render() {
 		return (
-			<div style={ { paddingTop: pageHeaderHeight } } >
+			<div style={ divStyle } >
 				<Route exact={ true } path='/' component={ HomePage } />
 			</div>
 		)
@@ -22,6 +22,13 @@ export default connect<StateProps, DispatchProps, OwnProps>(
 	mapDispatchToProps
 )(MyRoutes)
 
+/////////////////////////////////////////////////////////////////
+/////////////////////////// INTERFACES //////////////////////////
+/////////////////////////////////////////////////////////////////
+const divStyle = {
+	backgroundColor: iceGrey,
+	paddingTop: pageHeaderHeight,
+}
 /////////////////////////////////////////////////////////////////
 /////////////////////////// INTERFACES //////////////////////////
 /////////////////////////////////////////////////////////////////

@@ -31,11 +31,12 @@ export const appTheme = createMuiTheme({
 		secondary: {
 			main: iceGrey,
 		},
-		error: {
-			main: alizarin,
-		},
+		// error: {
+		// 	main: alizarin,
+		// },
 	},
 	typography: {
+		useNextVariants: true,
 		fontFamily: [
 			'Montserrat',
 			'"Helvetica Neue"',
