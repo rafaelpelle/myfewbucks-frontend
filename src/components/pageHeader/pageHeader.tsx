@@ -9,7 +9,6 @@ import NotificatiosActiveIcon from '@material-ui/icons/NotificationsActiveRounde
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNoneRounded'
 import { pageHeaderHeight } from '../../utils/theme'
 
-
 const styles = createStyles({
 	container: {
 		flexGrow: 1,
@@ -35,23 +34,18 @@ const styles = createStyles({
 	},
 })
 
-
 const PageHeader: React.FC<Props> = (props) => {
 	const { classes } = props
 	const text = 'MyFewBucks'
 	const hasNotification = true
 	return (
 		<div className={ classes.container }>
-			<AppBar
-				className={ classes.appBar }
-				position='fixed'
-				color='secondary'
-			>
+			<AppBar className={ classes.appBar } position='fixed' color='secondary'>
 				<Toolbar className={ classes.toolbar }>
 					<IconButton className={ classes.menuButton }>
 						<MenuIcon />
 					</IconButton>
-					<Typography align='center' className={ classes.text } >
+					<Typography align='center' className={ classes.text }>
 						{ text }
 					</Typography>
 					<IconButton className={ classes.notificationButton }>

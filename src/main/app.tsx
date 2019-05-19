@@ -21,8 +21,8 @@ const App: React.FC<Props> = (props) => {
 	return (
 		<Router history={ history }>
 			<div>
-				{/*<ToastContainer />*/}
-				{/*<ModalContainer />*/}
+				{ /*<ToastContainer />*/ }
+				{ /*<ModalContainer />*/ }
 				<PageHeader />
 				<Switch>
 					<MyRoutes />

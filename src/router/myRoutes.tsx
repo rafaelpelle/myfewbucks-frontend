@@ -3,14 +3,13 @@ import { Redirect, Route } from 'react-router'
 import { iceGrey, pageHeaderHeight } from '../utils/theme'
 import HomePage from '../pages/home/home'
 
-
 interface IProps {
 	// empty
 }
 
 const MyRoutes: React.FC<IProps> = (props) => {
 	return (
-		<div style={ divStyle } >
+		<div style={ divStyle }>
 			<Route exact={ true } path='/' component={ HomePage } />
 		</div>
 	)
