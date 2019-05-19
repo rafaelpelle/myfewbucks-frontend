@@ -9,46 +9,30 @@ import PageHeader from '../components/pageHeader/pageHeader'
 
 require('./app.css')
 
-class App extends React.Component<Props, State> {
-	_isMounted: boolean
-
-	componentWillMount() {
+const App: React.FC<Props> = (props) => {
+	React.useEffect(() => {
 		// listen to the service-worker registration.onupdatefound event on /src/Utils/registerSW.ts.
 		document.body.addEventListener('updateAvailable', () => {
+			alert('Update available')
 			window.location.reload()
 		})
-	}
+	}, [])
 
-	componentDidMount() {
-		this._isMounted = true
-	}
-
-	componentWillUnmount() {
-		this._isMounted = false
-	}
-
-	render() {
-		return (
-			<Router history={ history }>
-				<div>
-					{/*<ToastContainer />*/}
-					{/*<ModalContainer />*/}
-					<PageHeader />
-					<Switch>
-						<MyRoutes />
-					</Switch>
-				</div>
-			</Router>
-		)
-	}
+	return (
+		<Router history={ history }>
+			<div>
+				{/*<ToastContainer />*/}
+				{/*<ModalContainer />*/}
+				<PageHeader />
+				<Switch>
+					<MyRoutes />
+				</Switch>
+			</div>
+		</Router>
+	)
 }
-const mapStateToProps = (state: IRootReducer) => ({})
-const mapDispatchToProps = (dispatch: any) => bindActionCreators({}, dispatch)
-export default connect<StateProps, DispatchProps, OwnProps>(
-	mapStateToProps,
-	mapDispatchToProps
-)(App)
 
+export default App
 /////////////////////////////////////////////////////////////////
 /////////////////////////// INTERFACES //////////////////////////
 /////////////////////////////////////////////////////////////////
