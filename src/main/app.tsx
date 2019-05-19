@@ -33,7 +33,7 @@ class App extends React.Component<Props, State> {
 				<div>
 					{/*<ToastContainer />*/}
 					{/*<ModalContainer />*/}
-					<PageHeader text={ 'MyFewBucks' }/>
+					<PageHeader />
 					<Switch>
 						<MyRoutes />
 					</Switch>

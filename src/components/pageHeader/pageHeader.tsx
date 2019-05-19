@@ -1,64 +1,61 @@
 import * as React from 'react'
-import * as PropTypes from 'prop-types'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import NotificationIcon from '@material-ui/icons/Notifications'
-import NotificationOutlineIcon from '@material-ui/icons/NotificationsNoneOutlined'
+import NotificatiosActiveIcon from '@material-ui/icons/NotificationsActiveRounded'
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNoneRounded'
+import { pageHeaderHeight } from '../../utils/theme'
+
 
 const styles = createStyles({
 	container: {
 		flexGrow: 1,
 	},
-	bar: {
-		height: '75px',
-		backgroundColor: '#f3f3f3',
+	appBar: {
+		height: pageHeaderHeight,
 	},
-	grow: {
-		flexGrow: 1,
+	toolbar: {
+		height: pageHeaderHeight,
+		padding: '0px 20px',
 	},
 	text: {
 		flexGrow: 1,
 		letterSpacing: '2px',
 		fontWeight: 600,
+		fontSize: '15px',
 	},
 	menuButton: {
-		marginLeft: -12,
-		marginRight: 20,
+		padding: 0,
 	},
 	notificationButton: {
-		marginLeft: 20,
-		marginRight: -12,
+		padding: 0,
 	},
 })
 
+
 const PageHeader: React.FC<Props> = (props) => {
-	const { classes, text } = props
+	const { classes } = props
+	const text = 'MyFewBucks'
 	const hasNotification = true
 	return (
 		<div className={ classes.container }>
-			<AppBar className={ classes.bar } position='static'>
-				<Toolbar className={ classes.bar }>
-					<IconButton
-						className={ classes.menuButton }
-					>
+			<AppBar
+				className={ classes.appBar }
+				position='fixed'
+				color='secondary'
+			>
+				<Toolbar className={ classes.toolbar }>
+					<IconButton className={ classes.menuButton }>
 						<MenuIcon />
 					</IconButton>
-					<Typography
-						variant='h6'
-						align='center'
-						className={ classes.text }
-					>
+					<Typography align='center' className={ classes.text } >
 						{ text }
 					</Typography>
-					<IconButton
-						className={ classes.notificationButton }
-					>
-						{ hasNotification ? <NotificationIcon /> : <NotificationOutlineIcon /> }
+					<IconButton className={ classes.notificationButton }>
+						{ hasNotification ? <NotificatiosActiveIcon /> : <NotificationsNoneIcon /> }
 					</IconButton>
 				</Toolbar>
 			</AppBar>
@@ -66,8 +63,6 @@ const PageHeader: React.FC<Props> = (props) => {
 	)
 }
 
-export interface Props extends WithStyles<typeof styles> {
-	text: string,
-}
+export interface Props extends WithStyles<typeof styles> {}
 
 export default withStyles(styles)(PageHeader)

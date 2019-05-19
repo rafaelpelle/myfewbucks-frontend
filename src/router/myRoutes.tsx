@@ -3,12 +3,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect, Route } from 'react-router'
 import { IRootReducer } from '../utils/interfaces'
+import { pageHeaderHeight } from '../utils/theme'
 import HomePage from '../pages/home/home'
 
 class MyRoutes extends React.Component<Props, State> {
 	render() {
 		return (
-			<div>
+			<div style={ { paddingTop: pageHeaderHeight } } >
 				<Route exact={ true } path='/' component={ HomePage } />
 			</div>
 		)
