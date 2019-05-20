@@ -1,14 +1,13 @@
 import * as React from 'react'
 import Typography from '@material-ui/core/Typography'
+import CustomInput from '../../components/customInput/customInput'
 
 const HomePage: React.FC<Props> = (props) => {
 	return (
-		<div>
-			<Typography variant='h1' align='center'>
-				Rafael
-			</Typography>
-			<Typography variant='h1' align='center'>
-				Pelle
+		<div style={ { padding: '1em' } }>
+			<CustomInput />
+			<Typography variant='h3' align='center'>
+				Rafael Pelle is testing stuff here
 			</Typography>
 		</div>
 	)

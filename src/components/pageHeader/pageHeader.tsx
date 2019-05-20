@@ -37,7 +37,7 @@ const styles = createStyles({
 const PageHeader: React.FC<Props> = (props) => {
 	const { classes } = props
 	const text = 'MyFewBucks'
-	const hasNotification = true
+	const hasNotification = false
 	return (
 		<div className={ classes.container }>
 			<AppBar className={ classes.appBar } position='fixed' color='secondary'>
