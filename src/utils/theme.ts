@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createMuiTheme, Theme } from '@material-ui/core/styles'
 
 ////////////////////////////////////////////////////////////////////////
 //////////////////////////////// COLORS ////////////////////////////////
@@ -23,7 +23,7 @@ export const pageHeaderHeight = '75px'
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////// APP THEME ///////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-export const appTheme = createMuiTheme({
+export const appTheme = (theme: Theme) => createMuiTheme({
 	palette: {
 		primary: {
 			main: wetasphalt,
@@ -31,9 +31,6 @@ export const appTheme = createMuiTheme({
 		secondary: {
 			main: iceGrey,
 		},
-		// error: {
-		// 	main: alizarin,
-		// },
 	},
 	typography: {
 		useNextVariants: true,
@@ -46,4 +43,40 @@ export const appTheme = createMuiTheme({
 			'"Segoe UI Symbol"',
 		].join(','),
 	},
+	overrides: {
+		MuiFormLabel: {
+			root: {
+				opacity: 0.5,
+				fontWeight: 600,
+				letterSpacing: '1px',
+				textTransform: 'uppercase',
+				margin: '10px 15px',
+				color: 'black',
+				zIndex: 1,
+			},
+			focused: {
+				marginTop: 0,
+			},
+			filled: {
+				marginTop: 0,
+			},
+		},
+		MuiInput: {
+			underline: {
+				'&:after': {
+					borderBottom: 'none',
+				},
+				'&:before': {
+					borderBottom: 'none',
+				},
+			},
+			input: {
+				boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
+				borderRadius: '7px',
+				fontWeight: 600,
+				padding: '15px',
+				backgroundColor: '#ffffff',
+			}
+		},
+	}
 })
