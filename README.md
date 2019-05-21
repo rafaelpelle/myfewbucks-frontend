@@ -1,6 +1,6 @@
 # myfewbucks-frontend
 
-### Available at:
+### Live at:
 I'm using Netlify to automatic deploy the master branch at:
 https://myfewbucks.netlify.com/
 
