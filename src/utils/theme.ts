@@ -69,6 +69,9 @@ export const appTheme = (theme: Theme) => createMuiTheme({
 				'&:before': {
 					borderBottom: 'none',
 				},
+				'&:hover:not(.MuiInput-disabled-141):not(.MuiInput-focused-140):not(.MuiInput-error-143):before': {
+					borderBottom: 'none',
+				},
 			},
 			input: {
 				boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',

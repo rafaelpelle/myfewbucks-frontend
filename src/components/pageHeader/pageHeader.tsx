@@ -50,11 +50,7 @@ const PageHeader: React.FC<Props> = (props) => {
 
 	return (
 		<div className={ classes.container }>
-			<AppBar
-				className={ classes.appBar }
-				position='fixed'
-				color='secondary'
-			>
+			<AppBar className={ classes.appBar } position='fixed' color='secondary'>
 				<Toolbar className={ classes.toolbar }>
 					<IconButton
 						className={ classes.menuButton }

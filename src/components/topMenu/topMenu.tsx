@@ -30,5 +30,4 @@ const TopMenu: React.FC<Props> = (props) => {
 	)
 }
 
-
 export default withStyles(styles)(TopMenu)
