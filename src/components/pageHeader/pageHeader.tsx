@@ -52,17 +52,17 @@ const PageHeader: React.FC<Props> = (props) => {
 		<div className={ classes.container }>
 			<AppBar className={ classes.appBar } position='fixed' color='secondary'>
 				<Toolbar className={ classes.toolbar }>
+					<IconButton className={ classes.notificationButton }>
+						{ hasNotification ? <NotificatiosActiveIcon /> : <NotificationsNoneIcon /> }
+					</IconButton>
+					<Typography align='center' className={ classes.text }>
+						{ text }
+					</Typography>
 					<IconButton
 						className={ classes.menuButton }
 						onClick={ () => setTopMenuIsOpen(!topMenuIsOpen) }
 					>
 						<MenuIcon />
-					</IconButton>
-					<Typography align='center' className={ classes.text }>
-						{ text }
-					</Typography>
-					<IconButton className={ classes.notificationButton }>
-						{ hasNotification ? <NotificatiosActiveIcon /> : <NotificationsNoneIcon /> }
 					</IconButton>
 				</Toolbar>
 			</AppBar>

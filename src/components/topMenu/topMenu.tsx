@@ -2,11 +2,15 @@ import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import { ISetTopMenuIsOpen } from '../../utils/interfaces'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import MenuItem from '../menuItem/menuItem'
 
 
 const styles = createStyles({
 	container: {
-		// padding: 0,
+		paddingTop: '15px',
+		paddingRight: '20px',
+		paddingBottom: '15px',
+		paddingLeft: '30px',
 	},
 })
 
@@ -24,7 +28,23 @@ const TopMenu: React.FC<Props> = (props) => {
 			onClose={ () => setTopMenuIsOpen(false) }
 			onOpen={ () => setTopMenuIsOpen(true) }
 		>
-			<div style={ { height: 'calc((100vh - 75px) / 2)' } }>
+			<div className={ classes.container }>
+				<MenuItem
+					text='account'
+					icon='account'
+				/>
+				<MenuItem
+					text='budget planning'
+					icon='budget'
+				/>
+				<MenuItem
+					text='reminder'
+					icon='reminder'
+				/>
+				<MenuItem
+					text='transaction'
+					icon='transaction'
+				/>
 			</div>
 		</SwipeableDrawer>
 	)
