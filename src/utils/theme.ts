@@ -13,78 +13,80 @@ export const wetasphalt = '#34495E'
 export const wisteria = '#8E44AD'
 export const iceGrey = '#f3f3f3'
 
-
 ////////////////////////////////////////////////////////////////////////
 //////////////////////////////// SIZES /////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 export const pageHeaderHeight = '75px'
 
-
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////// APP THEME ///////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-export const appTheme = (theme: Theme) => createMuiTheme({
-	palette: {
-		primary: {
-			main: wetasphalt,
-		},
-		secondary: {
-			main: iceGrey,
-		},
-	},
-	typography: {
-		useNextVariants: true,
-		fontFamily: [
-			'Montserrat',
-			'"Helvetica Neue"',
-			'sans-serif',
-			'"Apple Color Emoji"',
-			'"Segoe UI Emoji"',
-			'"Segoe UI Symbol"',
-		].join(','),
-	},
-	overrides: {
-		MuiFormLabel: {
-			root: {
-				opacity: 0.5,
-				fontWeight: 600,
-				letterSpacing: '1px',
-				textTransform: 'uppercase',
-				margin: '10px 15px',
-				color: 'black',
-				zIndex: 1,
+export const appTheme = (theme: Theme) =>
+	createMuiTheme({
+		palette: {
+			primary: {
+				main: wetasphalt,
 			},
-			focused: {
-				marginTop: 0,
-			},
-			filled: {
-				marginTop: 0,
+			secondary: {
+				main: iceGrey,
 			},
 		},
-		MuiInput: {
-			underline: {
-				'&:after': {
-					borderBottom: 'none',
+		typography: {
+			useNextVariants: true,
+			fontFamily: [
+				'Montserrat',
+				'"Helvetica Neue"',
+				'sans-serif',
+				'"Apple Color Emoji"',
+				'"Segoe UI Emoji"',
+				'"Segoe UI Symbol"',
+			].join(','),
+		},
+		overrides: {
+			MuiFormLabel: {
+				root: {
+					opacity: 0.5,
+					fontWeight: 600,
+					letterSpacing: '1px',
+					textTransform: 'uppercase',
+					margin: '10px 15px',
+					color: 'black',
+					zIndex: 1,
 				},
-				'&:before': {
-					borderBottom: 'none',
+				focused: {
+					marginTop: 0,
 				},
-				'&:hover:not(.MuiInput-disabled-141):not(.MuiInput-focused-140):not(.MuiInput-error-143):before': {
-					borderBottom: 'none',
+				filled: {
+					marginTop: 0,
 				},
 			},
-			input: {
-				boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
-				borderRadius: '7px',
-				fontWeight: 600,
-				padding: '15px',
-				backgroundColor: '#ffffff',
-			}
+			MuiInput: {
+				underline: {
+					'&:after': {
+						borderBottom: 'none',
+					},
+					'&:before': {
+						borderBottom: 'none',
+					},
+					'&:hover:not(.MuiInput-disabled-141):not(.MuiInput-focused-140):not(.MuiInput-error-143):before': {
+						borderBottom: 'none',
+					},
+					'&.MuiInput-underline-144:hover:not(.MuiInput-disabled-143):not(.MuiInput-focused-142):not(.MuiInput-error-145):before': {
+						borderBottom: 'none',
+					},
+				},
+				input: {
+					boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
+					borderRadius: '7px',
+					fontWeight: 600,
+					padding: '15px',
+					backgroundColor: '#ffffff',
+				},
+			},
+			MuiDrawer: {
+				paperAnchorTop: {
+					marginTop: pageHeaderHeight,
+				},
+			},
 		},
-		MuiDrawer: {
-			paperAnchorTop: {
-				marginTop: pageHeaderHeight,
-			}
-		}
-	}
-})
+	})
