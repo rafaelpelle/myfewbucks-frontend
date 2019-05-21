@@ -78,5 +78,10 @@ export const appTheme = (theme: Theme) => createMuiTheme({
 				backgroundColor: '#ffffff',
 			}
 		},
+		MuiDrawer: {
+			paperAnchorTop: {
+				marginTop: pageHeaderHeight,
+			}
+		}
 	}
 })

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
+import { IHandleTopMenu } from '../../utils/interfaces'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -14,7 +15,10 @@ const styles = createStyles({
 		flexGrow: 1,
 	},
 	appBar: {
+		// The TopMenu has z-index: 1300
+		zIndex: 1301,
 		height: pageHeaderHeight,
+		boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
 	},
 	toolbar: {
 		height: pageHeaderHeight,
@@ -34,15 +38,28 @@ const styles = createStyles({
 	},
 })
 
+export interface Props extends WithStyles<typeof styles> {
+	topMenuIsOpen: boolean
+	setTopMenuIsOpen: IHandleTopMenu
+}
+
 const PageHeader: React.FC<Props> = (props) => {
-	const { classes } = props
+	const { classes, topMenuIsOpen, setTopMenuIsOpen } = props
 	const text = 'MyFewBucks'
 	const hasNotification = false
+
 	return (
 		<div className={ classes.container }>
-			<AppBar className={ classes.appBar } position='fixed' color='secondary'>
+			<AppBar
+				className={ classes.appBar }
+				position='fixed'
+				color='secondary'
+			>
 				<Toolbar className={ classes.toolbar }>
-					<IconButton className={ classes.menuButton }>
+					<IconButton
+						className={ classes.menuButton }
+						onClick={ () => setTopMenuIsOpen(!topMenuIsOpen) }
+					>
 						<MenuIcon />
 					</IconButton>
 					<Typography align='center' className={ classes.text }>
@@ -56,7 +73,5 @@ const PageHeader: React.FC<Props> = (props) => {
 		</div>
 	)
 }
-
-export interface Props extends WithStyles<typeof styles> {}
 
 export default withStyles(styles)(PageHeader)
