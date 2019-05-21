@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { IHandleTopMenu } from '../../utils/interfaces'
+import { ISetTopMenuIsOpen } from '../../utils/interfaces'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -40,7 +40,7 @@ const styles = createStyles({
 
 export interface Props extends WithStyles<typeof styles> {
 	topMenuIsOpen: boolean
-	setTopMenuIsOpen: IHandleTopMenu
+	setTopMenuIsOpen: ISetTopMenuIsOpen
 }
 
 const PageHeader: React.FC<Props> = (props) => {

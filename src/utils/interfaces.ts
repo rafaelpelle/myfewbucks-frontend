@@ -9,5 +9,5 @@ export interface IUserReducer {
 /////////////////////////////////////////////////////////////////
 /////////////////////////// FUNCTIONS ///////////////////////////
 /////////////////////////////////////////////////////////////////
-export type IHandleTopMenu = (topMenuIsOpen: boolean) => void
-export type IHandleBottomMenu = (bottomMenuIsOpen: boolean) => void
+export type ISetTopMenuIsOpen = (topMenuIsOpen: boolean) => void
+export type ISetBottomMenuIsOpen = (bottomMenuIsOpen: boolean) => void

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { IHandleTopMenu } from '../../utils/interfaces'
+import { ISetTopMenuIsOpen } from '../../utils/interfaces'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 
 
@@ -12,7 +12,7 @@ const styles = createStyles({
 
 export interface Props extends WithStyles<typeof styles> {
 	topMenuIsOpen: boolean
-	setTopMenuIsOpen: IHandleTopMenu
+	setTopMenuIsOpen: ISetTopMenuIsOpen
 }
 
 const TopMenu: React.FC<Props> = (props) => {

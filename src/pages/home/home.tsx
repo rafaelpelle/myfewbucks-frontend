@@ -2,7 +2,6 @@ import * as React from 'react'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core'
-import { IHandleTopMenu } from '@src/utils/interfaces'
 
 const styles = createStyles({
 	pageContainer: {
