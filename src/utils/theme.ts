@@ -47,6 +47,7 @@ export const appTheme = (theme: Theme) =>
 				root: {
 					opacity: 0.5,
 					fontWeight: 600,
+					fontSize: '14px',
 					letterSpacing: '1px',
 					textTransform: 'uppercase',
 					margin: '10px 15px',
@@ -54,6 +55,7 @@ export const appTheme = (theme: Theme) =>
 					zIndex: 1,
 				},
 				focused: {
+					fontSize: '16px',
 					marginTop: 0,
 				},
 				filled: {

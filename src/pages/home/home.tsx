@@ -26,10 +26,6 @@ const HomePage: React.FC<Props> = (props) => {
 			>
 				Rafael Pelle is testing stuff here
 			</Typography>
-			<TextField
-				label='Full Name'
-				fullWidth
-			/>
 		</div>
 	)
 }

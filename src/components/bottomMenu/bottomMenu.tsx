@@ -11,8 +11,8 @@ export interface Props extends WithStyles<typeof styles> {
 
 const styles = createStyles({
 	container: {
-		paddingTop: '30px',
-		paddingRight: '39px',
+		paddingTop: '10px',
+		paddingRight: '38px',
 		paddingBottom: '100px',
 		paddingLeft: '20px',
 	},
