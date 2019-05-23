@@ -50,22 +50,21 @@ export function useCPFInput(initialValue: string) {
 		setRawValue(removeNonNumericCharacters(value))
 		if (value.length === cpfMaxLength) {
 			if (!validCPF(value)) {
-				setError('Por favor digite um CPF válido')
+				setError('Por favor, digite um CPF válido')
 			}
 		}
 	}
 	return {
 		onChange: handleChange,
-		value: cpf,
-		error: error.length > 1,
 		maxLength: cpfMaxLength,
+		value: cpf,
+		error,
 		rawValue,
 	}
 }
 
 export function usePasswordInput(initialValue: string) {
 	const [password, setPassword] = useState(initialValue)
-	const [isVisible, setIsVisible] = useState(false)
 	const [error, setError] = useState('')
 	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const { value } = e.target
@@ -78,16 +77,11 @@ export function usePasswordInput(initialValue: string) {
 			setError('The password must be 8 digits long.')
 		}
 	}
-	function toggleVisibility() {
-		setIsVisible(!isVisible)
-	}
 	return {
 		onChange: handleChange,
 		onBlur: checkPassword,
 		value: password,
 		type: 'password',
-		isVisible,
-		toggleVisibility,
 		error,
 	}
 }

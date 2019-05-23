@@ -45,7 +45,7 @@ export const appTheme = (theme: Theme) =>
 		overrides: {
 			MuiFormLabel: {
 				root: {
-					opacity: 0.5,
+					// opacity: 0.5,
 					fontWeight: 600,
 					fontSize: '14px',
 					letterSpacing: '1px',
@@ -54,13 +54,25 @@ export const appTheme = (theme: Theme) =>
 					color: 'black',
 					zIndex: 1,
 				},
+				error: {
+					fontSize: '16px',
+					fontWeight: 800,
+					marginTop: 0,
+				},
 				focused: {
 					fontSize: '16px',
 					marginTop: 0,
 				},
 				filled: {
+					fontSize: '16px',
 					marginTop: 0,
 				},
+			},
+			MuiFormHelperText: {
+				root: {
+					margin: '10px 15px',
+					fontWeight: 600,
+				}
 			},
 			MuiInput: {
 				underline: {
@@ -77,10 +89,17 @@ export const appTheme = (theme: Theme) =>
 						borderBottom: 'none',
 					},
 				},
+				error: {
+					// border: '2px solid ' + alizarin,
+					// borderRadius: '7px',
+					// boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
+					// fontWeight: 500,
+					// color: alizarin,
+				},
 				input: {
 					boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
 					borderRadius: '7px',
-					fontWeight: 600,
+					fontWeight: 500,
 					padding: '15px',
 					backgroundColor: '#ffffff',
 				},
