@@ -34,7 +34,7 @@ const styles = createStyles({
 		width: '100%',
 		display: 'flex',
 		alignItems: 'center',
-		margin: '20px 0px',
+		padding: '20px 0px',
 	},
 	avatar: {},
 	font: {

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import { ISetBottomMenuIsOpen } from '../../utils/interfaces'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import MenuItem from '../menuItem/menuItem'
+import BottomMenuItem from './bottomMenuItem'
 
 export interface Props extends WithStyles<typeof styles> {
 	bottomMenuIsOpen: boolean
@@ -13,40 +13,53 @@ const styles = createStyles({
 	container: {
 		paddingTop: '10px',
 		paddingRight: '38px',
-		paddingBottom: '100px',
+		paddingBottom: '95px',
 		paddingLeft: '20px',
 	},
 })
 
 const BottomMenu: React.FC<Props> = (props) => {
 	const { classes, bottomMenuIsOpen, setBottomMenuIsOpen } = props
+
+	function handleOnClose() {
+		setBottomMenuIsOpen(false)
+	}
+
+	function handleOnOpen() {
+		setBottomMenuIsOpen(true)
+	}
+
 	return (
 		<SwipeableDrawer
 			anchor='bottom'
 			open={ bottomMenuIsOpen }
-			onClose={ () => setBottomMenuIsOpen(false) }
-			onOpen={ () => setBottomMenuIsOpen(true) }
+			onClose={ handleOnClose }
+			onOpen={ handleOnOpen }
+			transitionDuration={ {
+				enter: 400,
+				exit: 300,
+			} }
 		>
 			<div className={ classes.container }>
-				<MenuItem
+				<BottomMenuItem
 					text='account'
 					icon='account'
-					iconPosition='right'
+					handleCloseMenu={ handleOnClose }
 				/>
-				<MenuItem
-					text='budget planning'
+				<BottomMenuItem
+					text='budget'
 					icon='budget'
-					iconPosition='right'
+					handleCloseMenu={ handleOnClose }
 				/>
-				<MenuItem
+				<BottomMenuItem
 					text='reminder'
 					icon='reminder'
-					iconPosition='right'
+					handleCloseMenu={ handleOnClose }
 				/>
-				<MenuItem
+				<BottomMenuItem
 					text='transaction'
 					icon='transaction'
-					iconPosition='right'
+					handleCloseMenu={ handleOnClose }
 				/>
 			</div>
 		</SwipeableDrawer>
