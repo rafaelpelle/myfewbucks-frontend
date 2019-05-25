@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { ISetTopMenuIsOpen } from '../../utils/interfaces'
+import { ISetTopMenuIsOpen, ISetBottomMenuIsOpen } from '../../utils/interfaces'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -22,7 +22,7 @@ const styles = createStyles({
 	},
 	toolbar: {
 		height: pageHeaderHeight,
-		padding: '0px 20px',
+		padding: 0,
 	},
 	text: {
 		flexGrow: 1,
@@ -31,38 +31,44 @@ const styles = createStyles({
 		fontSize: '15px',
 	},
 	menuButton: {
-		padding: 0,
+		padding: '20px',
 	},
 	notificationButton: {
-		padding: 0,
+		padding: '20px',
 	},
 })
 
 export interface Props extends WithStyles<typeof styles> {
 	topMenuIsOpen: boolean
 	setTopMenuIsOpen: ISetTopMenuIsOpen
+	setBottomMenuIsOpen: ISetBottomMenuIsOpen
 }
 
 const PageHeader: React.FC<Props> = (props) => {
-	const { classes, topMenuIsOpen, setTopMenuIsOpen } = props
+	const { classes, topMenuIsOpen, setTopMenuIsOpen, setBottomMenuIsOpen} = props
 	const text = 'MyFewBucks'
 	const hasNotification = false
+
+	function handleMenuClick() {
+		setTopMenuIsOpen(!topMenuIsOpen)
+		setBottomMenuIsOpen(false)
+	}
 
 	return (
 		<div className={ classes.container }>
 			<AppBar className={ classes.appBar } position='fixed' color='secondary'>
 				<Toolbar className={ classes.toolbar }>
-					<IconButton className={ classes.notificationButton }>
-						{ hasNotification ? <NotificatiosActiveIcon /> : <NotificationsNoneIcon /> }
+					<IconButton
+						className={ classes.menuButton }
+						onClick={ handleMenuClick }
+					>
+						<MenuIcon />
 					</IconButton>
 					<Typography align='center' className={ classes.text }>
 						{ text }
 					</Typography>
-					<IconButton
-						className={ classes.menuButton }
-						onClick={ () => setTopMenuIsOpen(!topMenuIsOpen) }
-					>
-						<MenuIcon />
+					<IconButton className={ classes.notificationButton }>
+						{ hasNotification ? <NotificatiosActiveIcon /> : <NotificationsNoneIcon /> }
 					</IconButton>
 				</Toolbar>
 			</AppBar>

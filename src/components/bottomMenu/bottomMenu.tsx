@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { ISetBottomMenuIsOpen, ISetTopMenuIsOpen } from '../../utils/interfaces'
+import { ISetBottomMenuIsOpen } from '../../utils/interfaces'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import BottomMenuItem from './bottomMenuItem'
 
 export interface Props extends WithStyles<typeof styles> {
 	bottomMenuIsOpen: boolean
 	setBottomMenuIsOpen: ISetBottomMenuIsOpen
-	setTopMenuIsOpen: ISetTopMenuIsOpen
 }
 
 const styles = createStyles({
@@ -20,12 +19,7 @@ const styles = createStyles({
 })
 
 const BottomMenu: React.FC<Props> = (props) => {
-	const {
-		classes,
-		bottomMenuIsOpen,
-		setBottomMenuIsOpen,
-		setTopMenuIsOpen,
-	} = props
+	const { classes, bottomMenuIsOpen, setBottomMenuIsOpen } = props
 
 	function handleOnClose() {
 		setBottomMenuIsOpen(false)
@@ -33,7 +27,6 @@ const BottomMenu: React.FC<Props> = (props) => {
 
 	function handleOnOpen() {
 		setBottomMenuIsOpen(true)
-		setTopMenuIsOpen(false)
 	}
 
 	return (

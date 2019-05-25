@@ -6,8 +6,7 @@ import MyRoutes from '../router/myRoutes'
 import PageHeader from '../components/pageHeader/pageHeader'
 import TopMenu from '../components/topMenu/topMenu'
 import BottomMenu from '../components/bottomMenu/bottomMenu'
-import Fab from '@material-ui/core/Fab'
-import AddIcon from '@material-ui/icons/AddRounded'
+import FloatingAddButton from '../components/floatingAddButton/floatingAddButton'
 require('./app.css')
 
 
@@ -15,19 +14,7 @@ export interface Props extends WithStyles<typeof styles> {}
 
 
 const styles = createStyles({
-	fab: {
-		position: 'absolute',
-		bottom: '30px',
-		right: '30px',
-		zIndex: 1301,
-	},
-	addIcon: {
-		transition: 'transform .2s ease-in-out',
-	},
-	clearIcon: {
-		transition: 'transform .2s ease-in-out',
-		transform: 'rotate(45deg)',
-	},
+	class1: {},
 })
 
 
@@ -50,28 +37,21 @@ const App: React.FC<Props> = (props) => {
 				<PageHeader
 					topMenuIsOpen={ topMenuIsOpen }
 					setTopMenuIsOpen={ setTopMenuIsOpen }
+					setBottomMenuIsOpen={ setBottomMenuIsOpen }
 				/>
 				<TopMenu
 					topMenuIsOpen={ topMenuIsOpen }
 					setTopMenuIsOpen={ setTopMenuIsOpen }
-					setBottomMenuIsOpen={ setBottomMenuIsOpen }
 				/>
 				<BottomMenu
 					bottomMenuIsOpen={ bottomMenuIsOpen }
 					setBottomMenuIsOpen={ setBottomMenuIsOpen }
+				/>
+				<FloatingAddButton
+					bottomMenuIsOpen={ bottomMenuIsOpen }
+					setBottomMenuIsOpen={ setBottomMenuIsOpen }
 					setTopMenuIsOpen={ setTopMenuIsOpen }
 				/>
-				<Fab
-					color='primary'
-					className={ classes.fab }
-					onClick={ () => setBottomMenuIsOpen(!bottomMenuIsOpen) }
-				>
-					<AddIcon
-						className={
-							bottomMenuIsOpen ? classes.clearIcon : classes.addIcon
-						}
-					/>
-				</Fab>
 				<Switch>
 					<MyRoutes />
 				</Switch>
