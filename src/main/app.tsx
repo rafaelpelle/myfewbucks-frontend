@@ -54,10 +54,12 @@ const App: React.FC<Props> = (props) => {
 				<TopMenu
 					topMenuIsOpen={ topMenuIsOpen }
 					setTopMenuIsOpen={ setTopMenuIsOpen }
+					setBottomMenuIsOpen={ setBottomMenuIsOpen }
 				/>
 				<BottomMenu
 					bottomMenuIsOpen={ bottomMenuIsOpen }
 					setBottomMenuIsOpen={ setBottomMenuIsOpen }
+					setTopMenuIsOpen={ setTopMenuIsOpen }
 				/>
 				<Fab
 					color='primary'

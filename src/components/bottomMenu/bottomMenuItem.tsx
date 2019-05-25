@@ -46,17 +46,17 @@ const icons: any = {
 	budget: <BarChartRounded />,
 }
 
-const stdIconStyle = {
+const stdAvatarStyle = {
 	color: 'white',
 	boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
 	height: '40px',
 	width: '40px',
 }
 const avatarStyles: any = {
-	transaction: { ...stdIconStyle, backgroundColor: alizarin },
-	reminder: { ...stdIconStyle, backgroundColor: belizehole },
-	account: { ...stdIconStyle, backgroundColor: orange },
-	budget: { ...stdIconStyle, backgroundColor: nephritis },
+	transaction: { ...stdAvatarStyle, backgroundColor: alizarin },
+	reminder: { ...stdAvatarStyle, backgroundColor: belizehole },
+	account: { ...stdAvatarStyle, backgroundColor: orange },
+	budget: { ...stdAvatarStyle, backgroundColor: nephritis },
 }
 
 

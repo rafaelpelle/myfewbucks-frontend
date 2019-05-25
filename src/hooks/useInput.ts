@@ -50,7 +50,7 @@ export function useCPFInput(initialValue: string) {
 		setRawValue(removeNonNumericCharacters(value))
 		if (value.length === cpfMaxLength) {
 			if (!validCPF(value)) {
-				setError('Por favor, digite um CPF válido')
+				setError('Invalid CPF')
 			}
 		}
 	}

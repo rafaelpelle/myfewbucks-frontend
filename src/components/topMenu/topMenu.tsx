@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { ISetTopMenuIsOpen } from '../../utils/interfaces'
+import { ISetTopMenuIsOpen, ISetBottomMenuIsOpen } from '../../utils/interfaces'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import MenuItem from '../menuItem/menuItem'
+import TopMenuItem from './topMenuItem'
 
 
 const styles = createStyles({
@@ -17,33 +17,62 @@ const styles = createStyles({
 export interface Props extends WithStyles<typeof styles> {
 	topMenuIsOpen: boolean
 	setTopMenuIsOpen: ISetTopMenuIsOpen
+	setBottomMenuIsOpen: ISetBottomMenuIsOpen
 }
 
 const TopMenu: React.FC<Props> = (props) => {
-	const { classes, topMenuIsOpen, setTopMenuIsOpen } = props
+	const { classes, topMenuIsOpen, setTopMenuIsOpen, setBottomMenuIsOpen } = props
+
+	function handleOnClose() {
+		setTopMenuIsOpen(false)
+	}
+
+	function handleOnOpen() {
+		setTopMenuIsOpen(true)
+		setBottomMenuIsOpen(false)
+	}
+
 	return (
 		<SwipeableDrawer
 			anchor='top'
 			open={ topMenuIsOpen }
-			onClose={ () => setTopMenuIsOpen(false) }
-			onOpen={ () => setTopMenuIsOpen(true) }
+			onClose={ handleOnClose }
+			onOpen={ handleOnOpen }
+			transitionDuration={ {
+				enter: 400,
+				exit: 300,
+			} }
 		>
 			<div className={ classes.container }>
-				<MenuItem
-					text='account'
-					icon='account'
+				<TopMenuItem
+					text='home'
+					icon='home'
+					handleCloseMenu={ handleOnClose }
 				/>
-				<MenuItem
-					text='budget planning'
-					icon='budget'
-				/>
-				<MenuItem
-					text='reminder'
-					icon='reminder'
-				/>
-				<MenuItem
-					text='transaction'
+				<TopMenuItem
+					text='transactions'
 					icon='transaction'
+					handleCloseMenu={ handleOnClose }
+				/>
+				<TopMenuItem
+					text='reminders'
+					icon='reminder'
+					handleCloseMenu={ handleOnClose }
+				/>
+				<TopMenuItem
+					text='accounts'
+					icon='account'
+					handleCloseMenu={ handleOnClose }
+				/>
+				<TopMenuItem
+					text='settings'
+					icon='settings'
+					handleCloseMenu={ handleOnClose }
+				/>
+				<TopMenuItem
+					text='logout'
+					icon='logout'
+					handleCloseMenu={ handleOnClose }
 				/>
 			</div>
 		</SwipeableDrawer>
