@@ -14,6 +14,28 @@ module.exports = merge(common, {
                 extractComments: true,
                 sourceMap: true,
                 cache: true,
+                parallel: true,
+                terserOptions: {
+                    ecma: 8,
+                    warnings: false,
+                    parse: {},
+                    compress: {
+                        arguments: true,
+                        booleans_as_integers: true,
+                        ecma: 8,
+                        keep_fargs: false,
+                        passes: 2,
+                    },
+                    mangle: true, // Note `mangle.properties` is `false` by default.
+                    module: false,
+                    output: null,
+                    toplevel: true,
+                    nameCache: null,
+                    ie8: false,
+                    keep_classnames: undefined,
+                    keep_fnames: false,
+                    safari10: false,
+                },
             }),
             // UglifyPlugin is broken with React Hooks
             // new UglifyJsPlugin({
