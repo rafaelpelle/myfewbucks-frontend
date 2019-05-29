@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Router, Switch } from 'react-router-dom'
 import { history } from '../router/history'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core'
 import MyRoutes from '../router/myRoutes'
 import PageHeader from '../components/pageHeader/pageHeader'
 import TopMenu from '../components/topMenu/topMenu'
@@ -10,18 +9,12 @@ import FloatingAddButton from '../components/floatingAddButton/floatingAddButton
 require('./app.css')
 
 
-export interface Props extends WithStyles<typeof styles> {}
-
-
-const styles = createStyles({
-	class1: {},
-})
+export interface Props {}
 
 
 const App: React.FC<Props> = (props) => {
-	const { classes } = props
-	const [topMenuIsOpen, setTopMenuIsOpen] = React.useState<boolean>(false)
-	const [bottomMenuIsOpen, setBottomMenuIsOpen] = React.useState<boolean>(false)
+	const [topMenuIsOpen, setTopMenuIsOpen] = React.useState(false)
+	const [bottomMenuIsOpen, setBottomMenuIsOpen] = React.useState(false)
 
 	React.useEffect(() => {
 		// listen to the service-worker registration.onupdatefound
@@ -59,4 +52,4 @@ const App: React.FC<Props> = (props) => {
 		</Router>
 	)
 }
-export default withStyles(styles)(App)
+export default App

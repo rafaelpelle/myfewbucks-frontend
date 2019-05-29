@@ -1,26 +1,11 @@
 import * as React from 'react'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import { ISetTopMenuIsOpen } from '../../utils/interfaces'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import TopMenuItem from './topMenuItem'
 
 
-const styles = createStyles({
-	container: {
-		paddingTop: '15px',
-		paddingRight: '20px',
-		paddingBottom: '15px',
-		paddingLeft: '30px',
-	},
-})
-
-export interface Props extends WithStyles<typeof styles> {
-	topMenuIsOpen: boolean
-	setTopMenuIsOpen: ISetTopMenuIsOpen
-}
-
 const TopMenu: React.FC<Props> = (props) => {
-	const { classes, topMenuIsOpen, setTopMenuIsOpen } = props
+	const { topMenuIsOpen, setTopMenuIsOpen } = props
 
 	function handleOnClose() {
 		setTopMenuIsOpen(false)
@@ -41,7 +26,7 @@ const TopMenu: React.FC<Props> = (props) => {
 				exit: 300,
 			} }
 		>
-			<div className={ classes.container }>
+			<div style={ containerStyle }>
 				<TopMenuItem
 					text='home'
 					icon='home'
@@ -76,5 +61,30 @@ const TopMenu: React.FC<Props> = (props) => {
 		</SwipeableDrawer>
 	)
 }
+export default TopMenu
 
-export default withStyles(styles)(TopMenu)
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const containerStyle = {
+	paddingTop: '15px',
+	paddingRight: '20px',
+	paddingBottom: '15px',
+	paddingLeft: '30px',
+}
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+interface OwnState {}
+
+interface OwnProps {
+	topMenuIsOpen: boolean
+	setTopMenuIsOpen: ISetTopMenuIsOpen
+}
+
+interface StateProps {}
+
+interface DispatchProps {}
+
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState

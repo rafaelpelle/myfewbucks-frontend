@@ -1,13 +1,59 @@
 import * as React from 'react'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 
-const styles = createStyles({
-	container: {},
-	textField: {},
-})
 
-export interface Props extends WithStyles<typeof styles> {
+const FormInput: React.FC<Props> = (props) => {
+	const {
+		name,
+		value,
+		placeholder,
+		label,
+		error,
+		maxLength,
+		autoFocus,
+		disabled,
+		fullWidth,
+		onChange,
+		onClick,
+		onKeyUp,
+		onBlur,
+	} = props
+	return (
+		<div>
+			<TextField
+				name={ name }
+				value={ value }
+				label={ label }
+				placeholder={ placeholder }
+				helperText={ error }
+				autoFocus={ autoFocus }
+				disabled={ disabled }
+				fullWidth={ fullWidth }
+				error={ error.length > 0 }
+				inputProps={ {
+					maxLength,
+					onChange,
+					onClick,
+					onKeyUp,
+					onBlur,
+				} }
+			/>
+		</div>
+	)
+}
+export default FormInput
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+interface OwnState {}
+
+interface OwnProps {
 	name?: string
 	rawValue?: string
 	value?: string
@@ -24,48 +70,9 @@ export interface Props extends WithStyles<typeof styles> {
 	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-const FormInput: React.FC<Props> = (props) => {
-	const {
-		classes,
-		name,
-		value,
-		placeholder,
-		label,
-		error,
-		maxLength,
-		autoFocus,
-		disabled,
-		fullWidth,
-		onChange,
-		onClick,
-		onKeyUp,
-		onBlur,
-	} = props
+interface StateProps {}
 
-	return (
-		<div className={ classes.container }>
-			<TextField
-				className={ classes.textField }
-				name={ name }
-				value={ value }
-				label={ label }
-				placeholder={ placeholder }
-				helperText={ error }
-				autoFocus={ autoFocus }
-				disabled={ disabled }
-				fullWidth={ fullWidth }
-				error={ error.length > 0 }
-				// onChange={ onChange }
-				inputProps={ {
-					maxLength,
-					onChange,
-					onClick,
-					onKeyUp,
-					onBlur,
-				} }
-			/>
-		</div>
-	)
-}
+interface DispatchProps {}
 
-export default withStyles(styles)(FormInput)
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState

@@ -6,7 +6,6 @@ export function handleCPF(cpf: string): string {
 	if (!lastDigitsList) {
 		return cpf
 	}
-
 	const lastDigits = lastDigitsList[0]
 	return cpf.replace(/..$/, '-' + lastDigits).replace(/(\d)(?=(\d{3})+\-)/g, '$1.')
 }
@@ -14,6 +13,7 @@ export function handleCPF(cpf: string): string {
 export function removeNonNumericCharacters(text: string) {
 	return text.replace(/\D/g, '')
 }
+
 export function removeNonAlphaNumericCharacters(text: string) {
 	return text.replace(/[!"\[\]{}%^&*:@~#';/.<>\\|`]/g, '')
 }
@@ -54,11 +54,10 @@ export function handleCNPJ(v: string): string {
 	// Coloca um hífen depois do bloco de quatro dígitos
 	return v.replace(/(\d{4})(\d)/, '$1-$2')
 }
-function removeLeftZeros(text: string) {
+
+export function removeLeftZeros(text: string) {
 	return text !== '' ? Number(text).toString() : ''
 }
-
-
 
 export const parserDate = (text: string) => {
 	const dateArr = text.split('/')

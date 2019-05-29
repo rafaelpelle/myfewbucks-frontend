@@ -1,25 +1,11 @@
 import * as React from 'react'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import { ISetBottomMenuIsOpen } from '../../utils/interfaces'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import BottomMenuItem from './bottomMenuItem'
 
-export interface Props extends WithStyles<typeof styles> {
-	bottomMenuIsOpen: boolean
-	setBottomMenuIsOpen: ISetBottomMenuIsOpen
-}
-
-const styles = createStyles({
-	container: {
-		paddingTop: '10px',
-		paddingRight: '38px',
-		paddingBottom: '95px',
-		paddingLeft: '20px',
-	},
-})
 
 const BottomMenu: React.FC<Props> = (props) => {
-	const { classes, bottomMenuIsOpen, setBottomMenuIsOpen } = props
+	const { bottomMenuIsOpen, setBottomMenuIsOpen } = props
 
 	function handleOnClose() {
 		setBottomMenuIsOpen(false)
@@ -40,7 +26,7 @@ const BottomMenu: React.FC<Props> = (props) => {
 				exit: 300,
 			} }
 		>
-			<div className={ classes.container }>
+			<div style={ containerStyle }>
 				<BottomMenuItem
 					text='account'
 					icon='account'
@@ -65,5 +51,32 @@ const BottomMenu: React.FC<Props> = (props) => {
 		</SwipeableDrawer>
 	)
 }
+export default BottomMenu
 
-export default withStyles(styles)(BottomMenu)
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const containerStyle = {
+	paddingTop: '10px',
+	paddingRight: '38px',
+	paddingBottom: '95px',
+	paddingLeft: '20px',
+}
+
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+interface OwnState {}
+
+interface OwnProps {
+	bottomMenuIsOpen: boolean
+	setBottomMenuIsOpen: ISetBottomMenuIsOpen
+}
+
+interface StateProps {}
+
+interface DispatchProps {}
+
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState

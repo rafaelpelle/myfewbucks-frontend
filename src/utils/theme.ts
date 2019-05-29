@@ -1,4 +1,4 @@
-import { createMuiTheme, Theme } from '@material-ui/core/styles'
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
 ////////////////////////////////////////////////////////////////////////
 //////////////////////////////// COLORS ////////////////////////////////
@@ -21,93 +21,92 @@ export const pageHeaderHeight = '65px'
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////// APP THEME ///////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-export const appTheme = (theme: Theme) =>
-	createMuiTheme({
-		palette: {
-			primary: {
-				main: wetasphalt,
-			},
-			secondary: {
-				main: iceGrey,
-			},
+export const appTheme = createMuiTheme({
+	palette: {
+		primary: {
+			main: wetasphalt,
 		},
-		typography: {
-			useNextVariants: true,
-			fontFamily: [
-				'Montserrat',
-				'"Helvetica Neue"',
-				'sans-serif',
-				'"Apple Color Emoji"',
-				'"Segoe UI Emoji"',
-				'"Segoe UI Symbol"',
-			].join(','),
+		secondary: {
+			main: iceGrey,
 		},
-		overrides: {
-			MuiFormLabel: {
-				root: {
-					// opacity: 0.5,
-					fontWeight: 600,
-					fontSize: '14px',
-					letterSpacing: '1px',
-					textTransform: 'uppercase',
-					margin: '10px 15px',
-					color: 'black',
-					zIndex: 1,
-				},
-				error: {
-					fontSize: '16px',
-					fontWeight: 800,
-					marginTop: 0,
-				},
-				focused: {
-					fontSize: '16px',
-					marginTop: 0,
-				},
-				filled: {
+	},
+	typography: {
+		useNextVariants: true,
+		fontFamily: [
+			'Montserrat',
+			'"Helvetica Neue"',
+			'sans-serif',
+			'"Apple Color Emoji"',
+			'"Segoe UI Emoji"',
+			'"Segoe UI Symbol"',
+		].join(','),
+	},
+	overrides: {
+		MuiFormLabel: {
+			root: {
+				fontWeight: 600,
+				fontSize: '14px',
+				letterSpacing: '1px',
+				textTransform: 'uppercase',
+				margin: '10px 15px',
+				color: 'black',
+				zIndex: 1,
+				"&$focused": {
 					fontSize: '16px',
 					marginTop: 0,
 				},
 			},
-			MuiFormHelperText: {
-				root: {
-					margin: '10px 15px',
-					fontWeight: 600,
-				}
+			error: {
+				fontSize: '16px',
+				fontWeight: 800,
+				marginTop: 0,
 			},
-			MuiInput: {
-				underline: {
-					'&:after': {
-						borderBottom: 'none',
-					},
-					'&:before': {
-						borderBottom: 'none',
-					},
-					'&:hover:not(.MuiInput-disabled-141):not(.MuiInput-focused-140):not(.MuiInput-error-143):before': {
-						borderBottom: 'none',
-					},
-					'&.MuiInput-underline-144:hover:not(.MuiInput-disabled-143):not(.MuiInput-focused-142):not(.MuiInput-error-145):before': {
-						borderBottom: 'none',
-					},
-				},
-				error: {
-					// border: '2px solid ' + alizarin,
-					// borderRadius: '7px',
-					// boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
-					// fontWeight: 500,
-					// color: alizarin,
-				},
-				input: {
-					boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
-					borderRadius: '7px',
-					fontWeight: 500,
-					padding: '15px',
-					backgroundColor: '#ffffff',
-				},
-			},
-			MuiDrawer: {
-				paperAnchorTop: {
-					marginTop: pageHeaderHeight,
-				},
+			filled: {
+				fontSize: '16px',
+				marginTop: 0,
 			},
 		},
-	})
+		MuiFormHelperText: {
+			root: {
+				margin: '10px 15px',
+				fontWeight: 600,
+			}
+		},
+		MuiInput: {
+			underline: {
+				'&:after': {
+					borderBottom: 'none',
+				},
+				'&:before': {
+					borderBottom: 'none',
+				},
+				'&:hover:not(.MuiInput-disabled-141):not(.MuiInput-focused-140):not(.MuiInput-error-143):before': {
+					borderBottom: 'none',
+				},
+				'&.MuiInput-underline-144:hover:not(.MuiInput-disabled-143):not(.MuiInput-focused-142):not(.MuiInput-error-145):before': {
+					borderBottom: 'none',
+				},
+			},
+			error: {
+				// border: '2px solid ' + alizarin,
+				// borderRadius: '7px',
+				// boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
+				// fontWeight: 500,
+				// color: alizarin,
+			},
+			input: {
+				boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.15), 0px 0px 5px rgba(0, 0, 0, 0.15)',
+				borderRadius: '7px',
+				fontWeight: 500,
+				padding: '15px',
+				backgroundColor: '#ffffff',
+			},
+		},
+		MuiDrawer: {
+			paperAnchorTop: {
+				marginTop: pageHeaderHeight,
+			},
+		},
+	},
+})
+

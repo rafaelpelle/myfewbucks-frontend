@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { history } from '../../router/history'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import HomeRounded from '@material-ui/icons/HomeRounded'
 import AttachMoneyRounded from '@material-ui/icons/AttachMoneyRounded'
@@ -11,37 +10,8 @@ import ExitToAppRounded from '@material-ui/icons/ExitToAppRounded'
 import KeyboardArrowRightRounded from '@material-ui/icons/KeyboardArrowRightRounded'
 
 
-const styles = createStyles({
-	container: {
-		width: '100%',
-		display: 'flex',
-		alignItems: 'center',
-		padding: '15px 0px',
-	},
-	font: {
-		fontWeight: 600,
-		fontSize: '14px',
-		letterSpacing: '1px',
-		textTransform: 'uppercase',
-		marginLeft: '15px',
-		marginRight: '15px',
-	},
-	rightArrow: {
-		marginLeft: 'auto',
-	},
-})
-
-export type IconOptionsType =
-	'home' | 'transaction' | 'reminder' | 'account' | 'settings' | 'logout'
-
-export interface Props extends WithStyles<typeof styles> {
-	text: string
-	icon: IconOptionsType
-	handleCloseMenu: () => void
-}
-
 const TopMenuItem: React.FC<Props> = (props) => {
-	const { classes, text, icon, handleCloseMenu } = props
+	const { text, icon, handleCloseMenu } = props
 
 	function handleClick() {
 		history.push('all-' + icon)
@@ -49,22 +19,67 @@ const TopMenuItem: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<div className={ classes.container } onClick={ handleClick }>
+		<div style={ containerStyle } onClick={ handleClick }>
 			{ icons[icon] }
-			<Typography className={ classes.font }>
+			<Typography style={ { ...fontStyle, textTransform: 'uppercase' } }>
 				{ text }
 			</Typography>
-			<KeyboardArrowRightRounded className={ classes.rightArrow } />
+			<KeyboardArrowRightRounded style={ arrowStyle } />
 		</div>
 	)
 }
-export default withStyles(styles)(TopMenuItem)
+export default TopMenuItem
 
-
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const containerStyle = {
+	width: '100%',
+	display: 'flex',
+	alignItems: 'center',
+	padding: '15px 0px',
+}
+const fontStyle = {
+	fontWeight: 600,
+	fontSize: '14px',
+	letterSpacing: '1px',
+	textTransform: 'uppercase',
+	marginLeft: '15px',
+	marginRight: '15px',
+}
+const arrowStyle = {
+	marginLeft: 'auto',
+}
 const iconStyle = {
 	height: 'auto',
 	width: '22px',
 }
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+export type IconOptionsType =
+	| 'home'
+	| 'transaction'
+	| 'reminder'
+	| 'account'
+	| 'settings'
+	| 'logout'
+
+interface OwnState {}
+
+interface OwnProps {
+	text: string
+	icon: IconOptionsType
+	handleCloseMenu: () => void
+}
+
+interface StateProps {}
+
+interface DispatchProps {}
+
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState
+
 const icons: any = {
 	home: <HomeRounded style={ iconStyle } />,
 	transaction: <AttachMoneyRounded style={ iconStyle } />,

@@ -1,42 +1,13 @@
 import * as React from 'react'
-import { history } from '../../router/history'
 import Avatar from '@material-ui/core/Avatar'
-import Typography from '@material-ui/core/Typography'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { alizarin, belizehole, orange, nephritis } from '../../utils/theme'
+import Typography from '@material-ui/core/Typography/'
 import AttachMoneyRounded from '@material-ui/icons/AttachMoneyRounded'
 import AlarmRounded from '@material-ui/icons/AlarmRounded'
 import AccountBalanceRounded from '@material-ui/icons/AccountBalanceRounded'
 import BarChartRounded from '@material-ui/icons/BarChartRounded'
 import KeyboardArrowLeftRounded from '@material-ui/icons/KeyboardArrowLeftRounded'
-
-export type IconOptionsType = 'transaction' | 'reminder' | 'account' | 'budget'
-
-export interface Props extends WithStyles<typeof styles> {
-	text: string
-	icon: IconOptionsType
-	handleCloseMenu: () => void,
-}
-
-const styles = createStyles({
-	container: {
-		width: '100%',
-		display: 'flex',
-		alignItems: 'center',
-		padding: '10px 0px',
-	},
-	font: {
-		fontWeight: 600,
-		fontSize: '14px',
-		letterSpacing: '1px',
-		textTransform: 'uppercase',
-		marginLeft: '15px',
-		marginRight: '15px',
-	},
-	leftArrow: {
-		marginRight: 'auto',
-	},
-})
+import { history } from '../../router/history'
+import { alizarin, belizehole, orange, nephritis } from '../../utils/theme'
 
 const icons: any = {
 	transaction: <AttachMoneyRounded />,
@@ -45,6 +16,48 @@ const icons: any = {
 	budget: <BarChartRounded />,
 }
 
+const RightIconMenuItem: React.FC<Props> = (props) => {
+	const { text, icon, handleCloseMenu } = props
+	const avatarStyle = avatarStyles[icon]
+
+	function handleClick() {
+		history.push('add-' + icon)
+		handleCloseMenu()
+	}
+
+	return (
+		<div style={ containerStyle } onClick={ handleClick }>
+			<KeyboardArrowLeftRounded style={ arrowStyle } />
+			<Typography style={ { ...fontStyle, textTransform: 'uppercase' } }>
+				{ text }
+			</Typography>
+			<Avatar style={ avatarStyle }>
+				{ icons[icon] }
+			</Avatar>
+		</div>
+	)
+}
+export default RightIconMenuItem
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const containerStyle = {
+	width: '100%',
+	display: 'flex',
+	alignItems: 'center',
+	padding: '10px 0px',
+}
+const fontStyle = {
+	fontWeight: 600,
+	fontSize: '14px',
+	letterSpacing: '1px',
+	marginLeft: '15px',
+	marginRight: '15px',
+}
+const arrowStyle = {
+	marginRight: 'auto',
+}
 const stdAvatarStyle = {
 	color: 'white',
 	boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
@@ -57,24 +70,22 @@ const avatarStyles: any = {
 	account: { ...stdAvatarStyle, backgroundColor: orange },
 	budget: { ...stdAvatarStyle, backgroundColor: nephritis },
 }
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+export type IconOptionsType = 'transaction' | 'reminder' | 'account' | 'budget'
 
+interface OwnState {}
 
-const RightIconMenuItem: React.FC<Props> = (props) => {
-	const { classes, text, icon, handleCloseMenu } = props
-	const avatarStyle = avatarStyles[icon]
-
-	function handleClick() {
-		history.push('add-' + icon)
-		handleCloseMenu()
-	}
-
-	return (
-		<div className={ classes.container } onClick={ handleClick }>
-			<KeyboardArrowLeftRounded className={ classes.leftArrow } />
-			<Typography className={ classes.font }>{ text }</Typography>
-			<Avatar style={ avatarStyle }>{ icons[icon] }</Avatar>
-		</div>
-	)
+interface OwnProps {
+	text: string
+	icon: IconOptionsType
+	handleCloseMenu: () => void
 }
 
-export default withStyles(styles)(RightIconMenuItem)
+interface StateProps {}
+
+interface DispatchProps {}
+
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import { ISetTopMenuIsOpen, ISetBottomMenuIsOpen } from '../../utils/interfaces'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -10,42 +9,9 @@ import NotificatiosActiveIcon from '@material-ui/icons/NotificationsActiveRounde
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNoneRounded'
 import { pageHeaderHeight } from '../../utils/theme'
 
-const styles = createStyles({
-	container: {
-		flexGrow: 1,
-	},
-	appBar: {
-		// The TopMenu has z-index: 1300
-		zIndex: 1301,
-		height: pageHeaderHeight,
-		boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-	},
-	toolbar: {
-		height: pageHeaderHeight,
-		padding: 0,
-	},
-	text: {
-		flexGrow: 1,
-		letterSpacing: '2px',
-		fontWeight: 600,
-		fontSize: '15px',
-	},
-	menuButton: {
-		padding: '20px',
-	},
-	notificationButton: {
-		padding: '20px',
-	},
-})
-
-export interface Props extends WithStyles<typeof styles> {
-	topMenuIsOpen: boolean
-	setTopMenuIsOpen: ISetTopMenuIsOpen
-	setBottomMenuIsOpen: ISetBottomMenuIsOpen
-}
 
 const PageHeader: React.FC<Props> = (props) => {
-	const { classes, topMenuIsOpen, setTopMenuIsOpen, setBottomMenuIsOpen} = props
+	const { topMenuIsOpen, setTopMenuIsOpen, setBottomMenuIsOpen} = props
 	const text = 'MyFewBucks'
 	const hasNotification = false
 
@@ -55,19 +21,20 @@ const PageHeader: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<div className={ classes.container }>
-			<AppBar className={ classes.appBar } position='fixed' color='secondary'>
-				<Toolbar className={ classes.toolbar }>
-					<IconButton
-						className={ classes.menuButton }
-						onClick={ handleMenuClick }
-					>
+		<div style={ containerStyle }>
+			<AppBar
+				position='fixed'
+				color='secondary'
+				style={ appBarStyle }
+			>
+				<Toolbar style={ toolbarStyle }>
+					<IconButton style={ menuButtonStyle } onClick={ handleMenuClick }>
 						<MenuIcon />
 					</IconButton>
-					<Typography align='center' className={ classes.text }>
+					<Typography align='center' style={ textStyle }>
 						{ text }
 					</Typography>
-					<IconButton className={ classes.notificationButton }>
+					<IconButton style={ notificationButtonStyle }>
 						{ hasNotification ? <NotificatiosActiveIcon /> : <NotificationsNoneIcon /> }
 					</IconButton>
 				</Toolbar>
@@ -75,5 +42,50 @@ const PageHeader: React.FC<Props> = (props) => {
 		</div>
 	)
 }
+export default PageHeader
 
-export default withStyles(styles)(PageHeader)
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const containerStyle = {
+	flexGrow: 1,
+}
+const appBarStyle = {
+	// The TopMenu has z-index: 1300
+	zIndex: 1301,
+	height: pageHeaderHeight,
+	boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
+}
+const toolbarStyle = {
+	height: pageHeaderHeight,
+	padding: 0,
+}
+const textStyle = {
+	flexGrow: 1,
+	letterSpacing: '2px',
+	fontWeight: 600,
+	fontSize: '15px',
+}
+const menuButtonStyle = {
+	padding: '20px',
+}
+const notificationButtonStyle = {
+	padding: '20px',
+}
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+interface OwnState {}
+
+interface OwnProps {
+	topMenuIsOpen: boolean
+	setTopMenuIsOpen: ISetTopMenuIsOpen
+	setBottomMenuIsOpen: ISetBottomMenuIsOpen
+}
+
+interface StateProps {}
+
+interface DispatchProps {}
+
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState

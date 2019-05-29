@@ -1,33 +1,12 @@
 import * as React from 'react'
 import { ISetBottomMenuIsOpen, ISetTopMenuIsOpen } from '../../utils/interfaces'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/AddRounded'
 
-const styles = createStyles({
-	fab: {
-		position: 'absolute',
-		bottom: '30px',
-		right: '30px',
-		zIndex: 1301,
-	},
-	addIcon: {
-		transition: 'transform .2s ease-in-out',
-	},
-	clearIcon: {
-		transition: 'transform .2s ease-in-out',
-		transform: 'rotate(45deg)',
-	},
-})
 
-export interface Props extends WithStyles<typeof styles> {
-	bottomMenuIsOpen: boolean
-	setBottomMenuIsOpen: ISetBottomMenuIsOpen
-	setTopMenuIsOpen: ISetTopMenuIsOpen
-}
 
 const FloatingAddButton: React.FC<Props> = (props) => {
-	const { classes, bottomMenuIsOpen, setBottomMenuIsOpen, setTopMenuIsOpen } = props
+	const { bottomMenuIsOpen, setBottomMenuIsOpen, setTopMenuIsOpen } = props
 
 	function handleClick() {
 		setBottomMenuIsOpen(!bottomMenuIsOpen)
@@ -37,12 +16,44 @@ const FloatingAddButton: React.FC<Props> = (props) => {
 	return (
 		<Fab
 			color='primary'
-			className={ classes.fab }
+			style={ { ...fabStyle, position: 'absolute' } }
 			onClick={ handleClick }
 		>
-			<AddIcon className={ bottomMenuIsOpen ? classes.clearIcon : classes.addIcon } />
+			<AddIcon style={ bottomMenuIsOpen ? clearIconStyle : addIconStyle } />
 		</Fab>
 	)
 }
+export default FloatingAddButton
 
-export default withStyles(styles)(FloatingAddButton)
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const fabStyle = {
+	bottom: '30px',
+	right: '30px',
+	zIndex: 1301,
+}
+const addIconStyle = {
+	transition: 'transform .2s ease-in-out',
+}
+const clearIconStyle = {
+	transition: 'transform .2s ease-in-out',
+	transform: 'rotate(45deg)',
+}
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+interface OwnState {}
+
+interface OwnProps {
+	bottomMenuIsOpen: boolean
+	setBottomMenuIsOpen: ISetBottomMenuIsOpen
+	setTopMenuIsOpen: ISetTopMenuIsOpen
+}
+
+interface StateProps {}
+
+interface DispatchProps {}
+
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState

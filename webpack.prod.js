@@ -10,12 +10,6 @@ module.exports = merge(common, {
     mode: 'production',
     optimization: {
         minimizer: [
-            // new TerserPlugin({
-            //     extractComments: true,
-            //     sourceMap: true,
-            //     cache: true,
-            // }),
-            // UglifyPlugin is broken with React Hooks
             new UglifyJsPlugin({
                 sourceMap: true,
                 cache: true,
