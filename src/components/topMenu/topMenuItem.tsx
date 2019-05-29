@@ -1,17 +1,14 @@
 import * as React from 'react'
 import { history } from '../../router/history'
-import { iceGrey } from '../../utils/theme'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { Avatar, Typography } from '@material-ui/core'
-import {
-	HomeRounded,
-	AttachMoneyRounded,
-	AlarmRounded,
-	AccountBalanceRounded,
-	SettingsRounded,
-	ExitToAppRounded,
-	KeyboardArrowRightRounded,
-} from '@material-ui/icons'
+import Typography from '@material-ui/core/Typography'
+import HomeRounded from '@material-ui/icons/HomeRounded'
+import AttachMoneyRounded from '@material-ui/icons/AttachMoneyRounded'
+import AlarmRounded from '@material-ui/icons/AlarmRounded'
+import AccountBalanceRounded from '@material-ui/icons/AccountBalanceRounded'
+import SettingsRounded from '@material-ui/icons/SettingsRounded'
+import ExitToAppRounded from '@material-ui/icons/ExitToAppRounded'
+import KeyboardArrowRightRounded from '@material-ui/icons/KeyboardArrowRightRounded'
 
 
 const styles = createStyles({

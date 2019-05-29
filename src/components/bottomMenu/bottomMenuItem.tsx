@@ -1,15 +1,14 @@
 import * as React from 'react'
 import { history } from '../../router/history'
-import { Avatar, Typography } from '@material-ui/core'
+import Avatar from '@material-ui/core/Avatar'
+import Typography from '@material-ui/core/Typography'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
-import { alizarin, belizehole, orange, nephritis, wetasphalt } from '../../utils/theme'
-import {
-	AttachMoneyRounded,
-	AlarmRounded,
-	AccountBalanceRounded,
-	BarChartRounded,
-	KeyboardArrowLeftRounded,
-} from '@material-ui/icons'
+import { alizarin, belizehole, orange, nephritis } from '../../utils/theme'
+import AttachMoneyRounded from '@material-ui/icons/AttachMoneyRounded'
+import AlarmRounded from '@material-ui/icons/AlarmRounded'
+import AccountBalanceRounded from '@material-ui/icons/AccountBalanceRounded'
+import BarChartRounded from '@material-ui/icons/BarChartRounded'
+import KeyboardArrowLeftRounded from '@material-ui/icons/KeyboardArrowLeftRounded'
 
 export type IconOptionsType = 'transaction' | 'reminder' | 'account' | 'budget'
 

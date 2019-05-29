@@ -10,46 +10,24 @@ module.exports = merge(common, {
     mode: 'production',
     optimization: {
         minimizer: [
-            new TerserPlugin({
-                extractComments: true,
+            // new TerserPlugin({
+            //     extractComments: true,
+            //     sourceMap: true,
+            //     cache: true,
+            // }),
+            // UglifyPlugin is broken with React Hooks
+            new UglifyJsPlugin({
                 sourceMap: true,
                 cache: true,
                 parallel: true,
-                terserOptions: {
-                    ecma: 8,
+                uglifyOptions: {
                     warnings: false,
-                    parse: {},
+                    ecma: 8,
                     compress: {
-                        arguments: true,
-                        booleans_as_integers: true,
-                        ecma: 8,
-                        keep_fargs: false,
-                        passes: 2,
-                    },
-                    mangle: true, // Note `mangle.properties` is `false` by default.
-                    module: false,
-                    output: null,
-                    toplevel: true,
-                    nameCache: null,
-                    ie8: false,
-                    keep_classnames: undefined,
-                    keep_fnames: false,
-                    safari10: false,
+                        inline: false
+                    }
                 },
             }),
-            // UglifyPlugin is broken with React Hooks
-            // new UglifyJsPlugin({
-            //     sourceMap: true,
-            //     cache: true,
-            //     parallel: true,
-            //     uglifyOptions: {
-            //         ecma: 8,
-            //         compress: {
-            //             warnings: false,
-            //             inline: false
-            //         }
-            //     },
-            // }),
             new OptimizeCSSAssetsPlugin({})
         ],
     },
