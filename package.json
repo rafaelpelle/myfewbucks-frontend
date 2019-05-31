@@ -6,8 +6,8 @@
   "author": "Rafael Pelle <rafapelle@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node --max_old_space_size=4096 node_modules/.bin/webpack-dev-server --inline --hot --config webpack.dev.js",
-    "build": "yarn run webpack --config webpack.prod.js",
+    "dev": "node --max_old_space_size=4096 node_modules/.bin/webpack-dev-server --inline --hot --config webpack.dev.js --env.NODE_ENV=development",
+    "build": "yarn run webpack --config webpack.prod.js --env.NODE_ENV=production",
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "devDependencies": {

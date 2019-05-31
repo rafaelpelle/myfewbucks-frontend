@@ -14,7 +14,7 @@ const TopMenuItem: React.FC<Props> = (props) => {
 	const { text, icon, handleCloseMenu } = props
 
 	function handleClick() {
-		history.push('all-' + icon)
+		history.push(text)
 		handleCloseMenu()
 	}
 

@@ -51,7 +51,7 @@ export const appTheme = createMuiTheme({
 				margin: '10px 15px',
 				color: 'black',
 				zIndex: 1,
-				"&$focused": {
+				'&$focused': {
 					fontSize: '16px',
 					marginTop: 0,
 				},
