@@ -6,10 +6,9 @@ import PageHeader from '../components/pageHeader/pageHeader'
 import TopMenu from '../components/topMenu/topMenu'
 import BottomMenu from '../components/bottomMenu/bottomMenu'
 import FloatingAddButton from '../components/floatingAddButton/floatingAddButton'
+
 require('./app.css')
 
-
-export interface Props {}
 
 
 const App: React.FC<Props> = (props) => {
@@ -53,3 +52,24 @@ const App: React.FC<Props> = (props) => {
 	)
 }
 export default App
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// STYLES ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// INTERFACES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+interface OwnState {
+}
+
+interface OwnProps {
+}
+
+interface StateProps {
+}
+
+interface DispatchProps {
+}
+
+type Props = StateProps & DispatchProps & OwnProps
+type State = OwnState

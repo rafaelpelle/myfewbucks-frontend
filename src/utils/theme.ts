@@ -42,6 +42,19 @@ export const appTheme = createMuiTheme({
 		].join(','),
 	},
 	overrides: {
+		MuiButton: {
+			root: {
+				boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25), 0px 2px 4px rgba(0, 0, 0, 0.25)',
+				borderRadius: '7px',
+				fontSize: '15px',
+				lineHeight: '30px',
+				letterSpacing: '2px',
+				fontWeight: 600,
+			},
+			text: {
+				boxShadow: 'none',
+			}
+		},
 		MuiFormLabel: {
 			root: {
 				fontWeight: 600,

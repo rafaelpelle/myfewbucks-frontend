@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { Redirect, Route } from 'react-router'
 import { iceGrey, pageHeaderHeight } from '../utils/theme'
-import HomePage from '../pages/home/home'
+import HomePage from '../pages/homePage/homePage'
+import LoginPage from '../pages/loginPage/loginPage'
 
 
 const MyRoutes: React.FC<Props> = (props) => {
@@ -16,6 +17,11 @@ const MyRoutes: React.FC<Props> = (props) => {
 				exact={ true }
 				path='/home'
 				render={ () => <Redirect to='/'/> }
+			/>
+			<Route
+				exact={ true }
+				path='/login'
+				component={ LoginPage }
 			/>
 		</div>
 	)

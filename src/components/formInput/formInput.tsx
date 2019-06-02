@@ -9,6 +9,8 @@ const FormInput: React.FC<Props> = (props) => {
 		placeholder,
 		label,
 		error,
+		style,
+		type,
 		maxLength,
 		autoFocus,
 		disabled,
@@ -19,26 +21,26 @@ const FormInput: React.FC<Props> = (props) => {
 		onBlur,
 	} = props
 	return (
-		<div>
-			<TextField
-				name={ name }
-				value={ value }
-				label={ label }
-				placeholder={ placeholder }
-				helperText={ error }
-				autoFocus={ autoFocus }
-				disabled={ disabled }
-				fullWidth={ fullWidth }
-				error={ error.length > 0 }
-				inputProps={ {
-					maxLength,
-					onChange,
-					onClick,
-					onKeyUp,
-					onBlur,
-				} }
-			/>
-		</div>
+		<TextField
+			name={ name }
+			value={ value }
+			label={ label }
+			placeholder={ placeholder }
+			helperText={ error }
+			autoFocus={ autoFocus }
+			disabled={ disabled }
+			fullWidth={ fullWidth }
+			error={ error.length > 0 }
+			style={ style }
+			inputProps={ {
+				type,
+				maxLength,
+				onChange,
+				onClick,
+				onKeyUp,
+				onBlur,
+			} }
+		/>
 	)
 }
 export default FormInput
@@ -60,6 +62,8 @@ interface OwnProps {
 	placeholder?: string
 	label?: string
 	error?: string,
+	type?: string,
+	style?: any,
 	maxLength?: number
 	autoFocus?: boolean
 	disabled?: boolean

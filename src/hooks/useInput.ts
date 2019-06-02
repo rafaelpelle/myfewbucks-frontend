@@ -35,6 +35,7 @@ export function usePhoneInput(initialValue: string) {
 		value: phone,
 		maxLength: 15,
 		rawValue,
+		type: 'tel',
 	}
 }
 
@@ -50,7 +51,7 @@ export function useCPFInput(initialValue: string) {
 		setRawValue(removeNonNumericCharacters(value))
 		if (value.length === cpfMaxLength) {
 			if (!validCPF(value)) {
-				setError('Invalid CPF')
+				setError('This is not a valid CPF...')
 			}
 		}
 	}
@@ -60,6 +61,7 @@ export function useCPFInput(initialValue: string) {
 		value: cpf,
 		error,
 		rawValue,
+		type: 'number',
 	}
 }
 
@@ -74,7 +76,7 @@ export function usePasswordInput(initialValue: string) {
 	function checkPassword(e: React.FocusEvent<HTMLInputElement>) {
 		const { value } = e.target
 		if (!validPassword(value)) {
-			setError('The password must be 8 digits long.')
+			setError('The password must be 8 digits long...')
 		}
 	}
 	return {
@@ -97,14 +99,13 @@ export function useEmailInput(initialValue: string) {
 	function checkEmail(e: React.FocusEvent<HTMLInputElement>) {
 		const { value } = e.target
 		if (!validEmail(value)) {
-			setError('Por favor digite um email válido')
+			setError('This is not a valid e-mail...')
 		}
 	}
 	return {
 		onChange: handleChange,
 		value: email,
 		error,
-		type: 'email',
 		onBlur: checkEmail,
 	}
 }
@@ -130,7 +131,7 @@ export function useAddress() {
 					headers: { 'x-access-token': null },
 				})
 				if (request.data.erro === true) {
-					setZipError('Digite um CEP válido')
+					setZipError('This is not a valid CEP...')
 				}
 				setLoading(false)
 				setStreet(request.data.logradouro)
@@ -140,7 +141,7 @@ export function useAddress() {
 			} catch (error) {
 				console.error(error)
 				setLoading(false)
-				setZipError('Erro no servidor')
+				setZipError('Server error...')
 			}
 		}
 	}

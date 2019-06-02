@@ -4,9 +4,9 @@ import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/AddRounded'
 
 
-
 const FloatingAddButton: React.FC<Props> = (props) => {
 	const { bottomMenuIsOpen, setBottomMenuIsOpen, setTopMenuIsOpen } = props
+	const isVisible = window.location.hash === '#/'
 
 	function handleClick() {
 		setBottomMenuIsOpen(!bottomMenuIsOpen)
@@ -14,13 +14,17 @@ const FloatingAddButton: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<Fab
-			color='primary'
-			style={ { ...fabStyle, position: 'absolute' } }
-			onClick={ handleClick }
-		>
-			<AddIcon style={ bottomMenuIsOpen ? clearIconStyle : addIconStyle } />
-		</Fab>
+		<div>
+			{ isVisible &&
+				<Fab
+					color='primary'
+					style={ { ...fabStyle, position: 'absolute' } }
+					onClick={ handleClick }
+				>
+					<AddIcon style={ bottomMenuIsOpen ? clearIconStyle : addIconStyle } />
+				</Fab>
+			}
+		</div>
 	)
 }
 export default FloatingAddButton
