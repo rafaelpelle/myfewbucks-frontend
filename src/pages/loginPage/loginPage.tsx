@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { history } from '../../router/history'
 import LoginForm from '../../components/loginForm/loginForm'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
@@ -11,6 +12,7 @@ const LoginPage: React.FC<Props> = (props) => {
 				variant='text'
 				color='primary'
 				style={ { ...buttonStyle, textTransform: 'none' } }
+				onClick={ () => history.push('/') }
 				fullWidth
 			>
 				Forgot password?
@@ -25,9 +27,7 @@ const LoginPage: React.FC<Props> = (props) => {
 				<Button
 					variant='contained'
 					color='primary'
-					// size='large'
-					// style={ buttonStyle }
-					// fullWidth
+					onClick={ () => history.push('/register') }
 				>
 					CREATE
 				</Button>
@@ -42,7 +42,7 @@ export default LoginPage
 //////////////////////////////////////////////////////////////////////////////
 const containerStyle = {
 	margin: '20px',
-	paddingTop: '20vh',
+	paddingTop: '10vh',
 }
 const buttonStyle = {
 	marginTop: '40px',

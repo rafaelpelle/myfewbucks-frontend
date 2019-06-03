@@ -1,7 +1,8 @@
 import * as React from 'react'
-import Typography from '@material-ui/core/Typography'
-import FormInput from '../../components/formInput/formInput'
+import { history } from '../../router/history'
 import { useCPFInput } from '../../hooks/useInput'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 
 
 export interface Props {
@@ -19,11 +20,14 @@ const HomePage: React.FC<Props> = (props) => {
 			>
 				Rafael Pelle is testing stuff here
 			</Typography>
-			<FormInput
-				label='CPF'
+			<Button
+				variant='contained'
+				color='primary'
 				fullWidth
-				{ ...useCPF }
-			/>
+				onClick={ () => history.push('/login') }
+			>
+				Sign in
+			</Button>
 		</div>
 	)
 }
