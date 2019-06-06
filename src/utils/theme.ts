@@ -31,7 +31,6 @@ export const appTheme = createMuiTheme({
 		},
 	},
 	typography: {
-		useNextVariants: true,
 		fontFamily: [
 			'Montserrat',
 			'"Helvetica Neue"',
@@ -68,11 +67,11 @@ export const appTheme = createMuiTheme({
 					fontSize: '16px',
 					marginTop: 0,
 				},
-			},
-			error: {
-				fontSize: '16px',
-				fontWeight: 800,
-				marginTop: 0,
+				'&$error': {
+					fontSize: '16px',
+					fontWeight: 800,
+					marginTop: 0,
+				},
 			},
 			filled: {
 				fontSize: '16px',
