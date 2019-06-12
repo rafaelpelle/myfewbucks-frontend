@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useEmailInput, usePasswordInput } from '../../hooks/useInput'
+import { requestUserLogin } from '../../utils/httpClient'
 import FormInput from '../formInput/formInput'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
@@ -7,6 +8,19 @@ import Typography from '@material-ui/core/Typography'
 const LoginForm: React.FC<Props> = (props) => {
 	const useEmail = useEmailInput('')
 	const usePassword = usePasswordInput('')
+
+	async function handleLogin() {
+		const email = useEmail.value
+		const password = usePassword.value
+		const anyError = useEmail.error || usePassword.error
+		const anyEmpty = email.length === 0 || password.length === 0
+		if (!anyError && !anyEmpty) {
+			const response = await requestUserLogin(email, password)
+		} else {
+			// Snackbar the error
+		}
+	}
+
 	return (
 		<div style={ containerStyle }>
 			<Typography
@@ -32,6 +46,7 @@ const LoginForm: React.FC<Props> = (props) => {
 				color='primary'
 				size='large'
 				style={ buttonStyle }
+				onClick={ handleLogin }
 				fullWidth
 			>
 				SIGN IN
@@ -45,7 +60,7 @@ export default LoginForm
 /////////////////////////////////// STYLES ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 const containerStyle = {
-	maxWidth: '350px',
+	maxWidth: '370px',
 	margin: '0 auto',
 }
 const textStyle = {

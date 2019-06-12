@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { history } from '../../router/history'
+import { wetasphalt } from '../../utils/theme'
 import LoginForm from '../../components/loginForm/loginForm'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
@@ -41,21 +42,22 @@ export default LoginPage
 /////////////////////////////////// STYLES ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 const containerStyle = {
-	margin: '20px',
-	paddingTop: '10vh',
+	maxWidth: '370px',
+	margin: '0 auto',
+	padding: '10vh 1em',
 }
 const buttonStyle = {
 	marginTop: '40px',
 }
 const regiterDivStyle = {
-	margin: '100px 00px 30px',
+	margin: '70px auto 30px',
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
 }
 const registerTextStyle = {
 	fontSize: '16px',
-	fontWeight: 700,
+	fontWeight: 600,
 }
 //////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// INTERFACES /////////////////////////////////

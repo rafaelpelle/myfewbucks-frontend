@@ -67,3 +67,7 @@ export const parserDate = (text: string) => {
 		year: Number(dateArr[2]),
 	}
 }
+
+export function removeWhiteSpaces(text: string): string {
+	return text.replace(/\s/g, '')
+}
