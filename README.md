@@ -20,10 +20,10 @@ yarn install
 
 - Run the dev server:
 ```
-npm run dev
+yarn run dev
 ```
 
 - Build the production files into the `dist` directory:
 ```
-npm run build
+yarn run build
 ```
